@@ -2,13 +2,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: {
-    'app': './src/index.js'
+    'app': './src/index.ts'
   },
   output: {
-    filename: '[name].[chunkhash:8].js'
+    filename: 'app.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.ts', '.tsx']
   },
   module: {
     rules: [
@@ -18,6 +18,13 @@ module.exports = {
           loader: 'babel-loader'
         }],
         exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/i,
+        use: [{
+          loader: 'ts-loader'
+        }],
+        exclude: /node_modules/
       }
     ]
   },
@@ -25,10 +32,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/tpl/index.html'
     })
-  ],
-  optimization: {
-    splitChunks: {
-      chunks: 'all'
-    }
-  }
+  ]
 }
