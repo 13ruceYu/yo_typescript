@@ -39,6 +39,47 @@
 * 静态类型：在编译阶段确定所有变量的类型。
 * 动态类型：在执行阶段确定所有变量的类型。
 
+### 1.5-基本类型
+
+#### 1.5.1-数据类型
+
+ES6 基本数据类型：
+
+1. String
+2. Number
+3. Boolean
+4. Null
+5. Undefined
+6. Symbol
+
+ES6 引用数据类型：
+
+1. Object
+2. Array
+3. Function
+4. Date
+5. Math
+6. RegExp
+
+TS 的数据类型：
+
+1. void
+2. any
+3. never
+4. 元祖
+5. 枚举
+6. 高级类型
+
+#### 1.5.2-类型注解
+
+作用：相当于强类型语言中的类型声明
+
+语法：**(variable/function): type**
+
+
+
+TS 完全覆盖 JS 的数据类型，并且通过 any 类型进行了对 JS 的兼容
+
 ## 2-工程篇
 
 ## 3-实战篇
