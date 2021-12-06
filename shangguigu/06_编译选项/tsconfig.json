@@ -1,0 +1,12 @@
+{
+  // 这 tmd 可以写注释
+  "include": [
+    "./src/**/*" // 编译任意目录下的任意文件
+  ],
+  "exclude": [ // 不编译指定文件
+    "./src/hello/**/*"
+  ],
+  // "extends": "./configs/base.json", // 继承配置项
+  // "files": [], // 单个文件
+  "compilerOptions": {}
+}
