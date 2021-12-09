@@ -8,5 +8,24 @@
   ],
   // "extends": "./configs/base.json", // 继承配置项
   // "files": [], // 单个文件
-  "compilerOptions": {}
+  "compilerOptions": {
+    // 指定编译版本
+    "target": "es6",
+    // 指定模块化规范
+    "module": "amd",
+    // 指定项目中要使用的库，如果是在浏览器环境下执行，不需要配置
+    // "lib": []
+    // 编译后代码存放的地址
+    "outDir": "./dist",
+    // 可以将编译后的代码合并为同一个文件
+    "outFile": "./dist/bundle.js",
+    // 是否编译 js
+    "allowJs": false,
+    // 是否检查 js 语法规范
+    "checkJs": false,
+    "removeComments": false,
+    
+
+
+  }
 }
