@@ -24,8 +24,14 @@
     // 是否检查 js 语法规范
     "checkJs": false,
     "removeComments": false,
-    
-
-
+    // 只编译，不触发文件生成
+    "noEmit": false,
+    "noEmitOnError": false,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    // 严格模式的总开关，写在第一行
+    "strict": true
   }
 }
