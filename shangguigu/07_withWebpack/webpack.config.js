@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -13,7 +13,28 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: [
+          // config babel
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  '@babel/preset-env',
+                  {
+                    targets: {
+                      'chrome': '80',
+                      // 'ie': '11'
+                    },
+                    'corejs': '3',
+                    'useBuiltIns': 'usage'
+                  }
+                ]
+              ]
+            }
+          },
+          'ts-loader'
+        ],
         exclude: /node-modules/
       }
     ]

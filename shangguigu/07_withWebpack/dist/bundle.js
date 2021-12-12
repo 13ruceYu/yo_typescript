@@ -1,0 +1,1 @@
+(()=>{"use strict";const o={name:"whh",age:9};console.log(o),o.age=666,console.log(Promise),console.log(7),console.log("yooooooooooooo"),console.log(777)})();
