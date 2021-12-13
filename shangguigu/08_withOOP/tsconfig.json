@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "ES6",
+    "outDir": "./dist",
+    "outFile": "./dist/bundle.js",
+  },
+  "include": [
+    "./src/**/*" // 编译任意目录下的任意文件
+  ],
+}
