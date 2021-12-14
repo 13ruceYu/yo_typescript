@@ -70,3 +70,49 @@ husky.bark();
     husky.bark();
     kity.bark();
 })();
+(() => {
+    class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+        bark() {
+            console.log('animal barkkkkkk');
+        }
+    }
+    class Dog extends Animal {
+        constructor(name, age) {
+            super(name);
+            this.age = age;
+        }
+        dogBark() {
+            super.bark();
+        }
+    }
+    const husky = new Dog('husky', 7);
+    husky.dogBark();
+})();
+(() => {
+    /**
+     * abstract class means it can only be father of other class
+     */
+    class Animal {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+    // abstract class means it can only be father of other class
+    // const animal = new Animal();
+    class Dog extends Animal {
+        constructor(name, age) {
+            super(name);
+            this.age = age;
+        }
+        bark() {
+            console.log('you must define abstract method from your father method');
+        }
+        dogBark() {
+            console.log('dog barking');
+        }
+    }
+    const husky = new Dog('husky', 7);
+})();
