@@ -116,3 +116,21 @@ husky.bark();
     }
     const husky = new Dog('husky', 7);
 })();
+(() => {
+    const obj = {
+        name: 'whh',
+        age: 3,
+        gender: 'female'
+    };
+    // how to use interface with class
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        eat() {
+            throw new Error("Method not implemented.");
+        }
+    }
+    // why use interface?
+    // to restrict class, so that can be used in some specific case
+})();
