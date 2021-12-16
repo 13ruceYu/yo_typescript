@@ -134,3 +134,77 @@ husky.bark();
     // why use interface?
     // to restrict class, so that can be used in some specific case
 })();
+(() => {
+    // use property decorator to define property more specific
+    /**
+     * 1. public: default decorator, property can be modified any where
+     * 2. private: only be accessible within class
+     * 3. protected: only be accessible within class and children class
+     *
+     */
+    class Person {
+        constructor(name, age, gender, height) {
+            this._name = name;
+            this._age = age;
+            this._gender = gender;
+            this._height = height;
+        }
+        getAge() {
+            return this._age;
+        }
+        setAge(age) {
+            age > 0 ? this._age = age : this._age = 0;
+        }
+        get gender() {
+            return this._gender;
+        }
+        set gender(gender) {
+            this._gender = gender;
+        }
+    }
+    const boy = new Person('bobo', 24, 'male', 170);
+    boy._name = 'giaoge';
+    // boy._age = -12
+    // console.log(boy._age);
+    console.log(boy.getAge());
+    boy.setAge(-111);
+    boy.gender = 'female';
+    console.log(boy.gender);
+    class Male extends Person {
+        say() {
+            // console.log(this._age); use protected 
+            console.log(this._height);
+        }
+    }
+    class SimpleGrammer {
+        constructor(name, age, height) {
+            this.name = name;
+            this.age = age;
+            this.height = height;
+        }
+    }
+    const yo = new SimpleGrammer('hoo', 23, 170);
+    console.log(boy);
+})();
+(() => {
+    // function fn(a: any):any {
+    //   return a;
+    // }
+    /**
+     * use generic when object or class type is not sure
+     */
+    function fn(a) {
+        return a;
+    }
+    fn(19); // 自动推断
+    fn('hello'); // 手动指定
+    // fn<number>('hell0')
+    function fn2(a, b) {
+        return a;
+    }
+    // generic T must be Inter's class
+    function fn3(a) {
+        return a;
+    }
+    fn3({ length: 22, giao: 12 });
+})();
