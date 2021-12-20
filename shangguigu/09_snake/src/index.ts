@@ -11,7 +11,7 @@ import GameControl from './modules/GameControl'
 //   scorePanel.addScore()
 // }
 
-new GameControl()
+const gc = new GameControl()
 
 
 
