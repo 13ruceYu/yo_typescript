@@ -8,6 +8,7 @@ export default class GameControl {
   scorePanel: ScorePanel;
 
   direction: string = '';
+  isLive: boolean = true;
 
   constructor() {
     this.food = new Food();
@@ -54,8 +55,6 @@ export default class GameControl {
     this.snake.X = x;
     this.snake.Y = y;
 
-    setTimeout(() => {
-      this.run.bind(this);
-    }, 300 - (this.scorePanel.level - 1) * 10);
+    this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 10);
   }
 }
