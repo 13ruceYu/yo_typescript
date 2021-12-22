@@ -13,7 +13,7 @@ export default class GameControl {
   constructor() {
     this.food = new Food();
     this.snake = new Snake();
-    this.scorePanel = new ScorePanel();
+    this.scorePanel = new ScorePanel(10, 1);
 
     this.init();
     this.run();
@@ -52,9 +52,24 @@ export default class GameControl {
         break;
     }
 
-    this.snake.X = x;
-    this.snake.Y = y;
+    this.checkEat(x, y);
 
-    this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 10);
+    try {
+      this.snake.X = x;
+      this.snake.Y = y;
+    } catch (error) {
+      alert(error)
+      this.isLive = false;
+    }
+
+    this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 30);
+  }
+
+  checkEat(x: number, y: number) {
+    if (x === this.food.X && y === this.food.Y) {
+      this.food.change();
+      this.scorePanel.addScore();
+      this.snake.addBody();
+    }
   }
 }
