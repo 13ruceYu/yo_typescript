@@ -1,4 +1,5 @@
 import { ITodoData } from "./js/typings";
+import TodoEvent from './js/TodoEvent';
 
 ; ((doc) => {
   const oInput: HTMLElement = doc.querySelector('input');
@@ -23,6 +24,8 @@ import { ITodoData } from "./js/typings";
     }
   ]
 
+  const todoEvent = new TodoEvent(todoData, oTodoList);
+
   const init = (): void => {
     bindEvent()
   }
@@ -33,11 +36,27 @@ import { ITodoData } from "./js/typings";
   }
 
   function handleAddBtnClick(): void {
-
+    todoEvent.addTodo({
+      id: 4,
+      content: "55",
+      completed: false
+    })
   }
 
   function handleListClick(e: MouseEvent): void {
+    const tar = e.target as HTMLElement;
+    const tagName = tar.tagName;
 
+    if (tagName === 'input' || tagName === 'button') {
+      switch (tagName) {
+        case 'input':
+          break;
+        case 'button':
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   init();
