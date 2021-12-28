@@ -2,7 +2,7 @@ import { ITodoData } from "./js/typings";
 import TodoEvent from './js/TodoEvent';
 
 ; ((doc) => {
-  const oInput: HTMLElement = doc.querySelector('input');
+  const oInput: HTMLInputElement = doc.querySelector('input');
   const oAddBtn: HTMLElement = doc.querySelector('button');
   const oTodoList: HTMLElement = doc.querySelector('.todo-list');
 
@@ -36,22 +36,33 @@ import TodoEvent from './js/TodoEvent';
   }
 
   function handleAddBtnClick(): void {
-    todoEvent.addTodo({
-      id: 4,
-      content: "55",
-      completed: false
-    })
+    const val = oInput.value.trim();
+    if (val.length) {
+      const ret = todoEvent.addTodo(<ITodoData>{
+        id: 4,
+        content: val,
+        completed: false
+      })
+      if (ret && ret === 1001) {
+        alert('列表项已存在')
+        return;
+      }
+      oInput.value = '';
+    }
   }
 
   function handleListClick(e: MouseEvent): void {
     const tar = e.target as HTMLElement;
-    const tagName = tar.tagName;
+    const tagName = tar.tagName.toLowerCase();
 
     if (tagName === 'input' || tagName === 'button') {
+      const id = parseInt(tar.dataset.id);
       switch (tagName) {
         case 'input':
+          todoEvent.toggleCompleted(id, tar);
           break;
         case 'button':
+          todoEvent.removeTodo(id, tar);
           break;
         default:
           break;

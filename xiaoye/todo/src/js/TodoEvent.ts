@@ -7,6 +7,11 @@ export default class TodoEvent extends TodoDom {
   constructor(todoData: ITodoData[], todoWrapper: HTMLElement) {
     super(todoWrapper);
     this.todoData = todoData;
+    this.init();
+  }
+
+  private init() {
+    this.initList(this.todoData)
   }
 
   addTodo(todo: ITodoData): undefined | number {
