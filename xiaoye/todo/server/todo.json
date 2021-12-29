@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "content": "learn TS",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "content": "learn Vue3",
+    "completed": false
+  },
+  {
+    "id": 3,
+    "content": "eating lunch",
+    "completed": true
+  }
+]

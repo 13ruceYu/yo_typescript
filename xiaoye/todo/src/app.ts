@@ -2,27 +2,11 @@ import { ITodoData } from "./js/typings";
 import TodoEvent from './js/TodoEvent';
 
 ; ((doc) => {
-  const oInput: HTMLInputElement = doc.querySelector('input');
-  const oAddBtn: HTMLElement = doc.querySelector('button');
-  const oTodoList: HTMLElement = doc.querySelector('.todo-list');
+  const oInput: HTMLInputElement = doc.querySelector('input')!;
+  const oAddBtn: HTMLElement = doc.querySelector('button')!;
+  const oTodoList: HTMLElement = doc.querySelector('.todo-list')!;
 
-  const todoData: ITodoData[] = [
-    {
-      id: 1,
-      content: '123',
-      completed: true
-    },
-    {
-      id: 2,
-      content: '234',
-      completed: false
-    },
-    {
-      id: 3,
-      content: '345',
-      completed: true
-    }
-  ]
+  const todoData: ITodoData[] = []
 
   const todoEvent = new TodoEvent(todoData, oTodoList);
 
@@ -39,7 +23,7 @@ import TodoEvent from './js/TodoEvent';
     const val = oInput.value.trim();
     if (val.length) {
       const ret = todoEvent.addTodo(<ITodoData>{
-        id: 4,
+        id: new Date().getTime(),
         content: val,
         completed: false
       })
@@ -56,7 +40,7 @@ import TodoEvent from './js/TodoEvent';
     const tagName = tar.tagName.toLowerCase();
 
     if (tagName === 'input' || tagName === 'button') {
-      const id = parseInt(tar.dataset.id);
+      const id = parseInt(tar.dataset.id!);
       switch (tagName) {
         case 'input':
           todoEvent.toggleCompleted(id, tar);
