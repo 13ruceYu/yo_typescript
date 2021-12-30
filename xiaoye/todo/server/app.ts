@@ -1,5 +1,6 @@
 import express, { Application } from 'express'
 import bodyParser from 'body-parser'
+import { readFile } from './utils'
 
 const app: Application = express()
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -12,7 +13,8 @@ app.all('*', (req, res, next) => {
 })
 
 app.get('/todolist', function (req, res) {
-
+  const todoList: string = readFile('todo.json')
+  res.send(todoList)
 })
 
 app.post('/toggle', function (req, res) {
