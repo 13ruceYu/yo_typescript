@@ -1,20 +1,22 @@
 <template>
-  <div class="wapper">vue3 + ts</div>
+  <div class="todo-wrapper">
+    <TodoInput></TodoInput>
+    <TodoList></TodoList>
+  </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+import TodoInput from './components/TodoInput/TodoInput.vue'
+import TodoList from './components/TodoList/TodoList.vue'
+export default defineComponent({
   name: "App",
-};
+  components: {
+    TodoInput,
+    TodoList
+  }
+});
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
